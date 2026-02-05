@@ -18,7 +18,7 @@ $stmt->close();
 
 if (!$undangan) {
     setFlashMessage('error', 'Anda belum memiliki undangan.');
-    redirect('pages/customer/dashboard');
+    redirect('customer/dashboard');
 }
 
 $undanganId = $undangan['id'];
@@ -27,7 +27,7 @@ $undanganId = $undangan['id'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if (!verifyCSRFToken($_POST['csrf_token'])) {
         setFlashMessage('error', 'Invalid CSRF token');
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
     
     $action = $_POST['action'];
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             setFlashMessage('error', 'Gagal memperbarui data mempelai');
         }
         $stmt->close();
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
     
     // Upload foto mempelai
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 setFlashMessage('error', $uploadResult['message']);
             }
         }
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
     
     // Update pembuka text
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             setFlashMessage('error', 'Gagal memperbarui text pembuka');
         }
         $stmt->close();
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
     
     // Update acara
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             setFlashMessage('error', 'Gagal memperbarui data acara');
         }
         $stmt->close();
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
     
     // Update cerita
@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             setFlashMessage('error', 'Gagal memperbarui cerita');
         }
         $stmt->close();
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
     
     // Upload galeri foto
@@ -185,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 setFlashMessage('error', $uploadResult['message']);
             }
         }
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
     
     // Delete galeri foto
@@ -211,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             logActivity($userId, 'delete_galeri', 'Hapus foto galeri');
             setFlashMessage('success', 'Foto galeri berhasil dihapus');
         }
-        redirect('pages/customer/edit-undangan');
+        redirect('customer/edit-undangan');
     }
 }
 
@@ -352,22 +352,22 @@ $pageTitle = 'Edit Undangan';
                 <p style="opacity: 0.8; font-size: 14px;"><?php echo escapeOutput($userName); ?></p>
             </div>
             <nav class="sidebar-menu">
-                <a href="<?php echo BASE_URL; ?>pages/customer/dashboard" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/dashboard" class="menu-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/edit-undangan" class="menu-item active">
+                <a href="<?php echo BASE_URL; ?>customer/edit-undangan" class="menu-item active">
                     <i class="fas fa-edit"></i> Edit Undangan
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-ucapan" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-ucapan" class="menu-item">
                     <i class="fas fa-comments"></i> Kelola Ucapan
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-hadiah" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-hadiah" class="menu-item">
                     <i class="fas fa-gift"></i> Kelola Hadiah
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-link" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-link" class="menu-item">
                     <i class="fas fa-link"></i> Kelola Link
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/logout" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>logout" class="menu-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </nav>

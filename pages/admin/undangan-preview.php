@@ -1,5 +1,5 @@
 <?php
-require_once '../../includes/functions.php';
+require_once 'includes/functions.php';
 startSecureSession();
 requireAdmin();
 
@@ -10,7 +10,7 @@ $undanganId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($undanganId === 0) {
     setFlashMessage('error', 'ID undangan tidak valid');
-    header('Location: ' . BASE_URL . 'pages/admin/undangan-list');
+    header('Location: ' . BASE_URL . 'admin/undangan-list');
     exit;
 }
 
@@ -36,7 +36,7 @@ $result = $query->get_result();
 
 if ($result->num_rows === 0) {
     setFlashMessage('error', 'Undangan tidak ditemukan');
-    header('Location: ' . BASE_URL . 'pages/admin/undangan-list');
+    header('Location: ' . BASE_URL . 'admin/undangan-list');
     exit;
 }
 
@@ -252,16 +252,16 @@ $pageTitle = "Preview Undangan";
                 <p>Admin Panel</p>
             </div>
             <nav class="sidebar-menu">
-                <a href="<?php echo BASE_URL; ?>pages/admin/dashboard" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>admin/dashboard" class="menu-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/admin/undangan-list" class="menu-item active">
+                <a href="<?php echo BASE_URL; ?>admin/undangan-list" class="menu-item active">
                     <i class="fas fa-envelope"></i> Undangan List
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/admin/kelola-user" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>admin/kelola-user" class="menu-item">
                     <i class="fas fa-users"></i> Kelola User
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/logout" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>logout" class="menu-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </nav>
@@ -273,7 +273,7 @@ $pageTitle = "Preview Undangan";
             <div class="topbar">
                 <h1><?php echo $pageTitle; ?></h1>
                 <div class="user-menu">
-                    <a href="<?php echo BASE_URL; ?>pages/admin/undangan-list" class="btn" style="padding: 8px 16px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px; margin-right: 15px;">
+                    <a href="<?php echo BASE_URL; ?>admin/undangan-list" class="btn" style="padding: 8px 16px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px; margin-right: 15px;">
                         <i class="fas fa-arrow-left"></i> Kembali
                     </a>
                     <span><i class="fas fa-user-circle"></i> <?php echo escapeOutput($_SESSION['nama_lengkap'] ?? 'Admin'); ?></span>

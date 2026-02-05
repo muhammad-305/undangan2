@@ -1,5 +1,5 @@
 <?php
-require_once '../../includes/functions.php';
+require_once 'includes/functions.php';
 startSecureSession();
 requireAdmin();
 
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && verifyCS
         }
     }
     
-    header('Location: ' . BASE_URL . 'pages/admin/kelola-user');
+    header('Location: ' . BASE_URL . 'admin/kelola-user');
     exit;
 }
 
@@ -201,16 +201,16 @@ $pageTitle = "Kelola User";
                 <p>Admin Panel</p>
             </div>
             <nav class="sidebar-menu">
-                <a href="<?php echo BASE_URL; ?>pages/admin/dashboard" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>admin/dashboard" class="menu-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/admin/undangan-list" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>admin/undangan-list" class="menu-item">
                     <i class="fas fa-envelope"></i> Undangan List
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/admin/kelola-user" class="menu-item active">
+                <a href="<?php echo BASE_URL; ?>admin/kelola-user" class="menu-item active">
                     <i class="fas fa-users"></i> Kelola User
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/logout" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>logout" class="menu-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </nav>
@@ -223,7 +223,7 @@ $pageTitle = "Kelola User";
                 <h1><?php echo $pageTitle; ?></h1>
                 <div class="user-menu">
                     <span><i class="fas fa-user-circle"></i> <?php echo escapeOutput($_SESSION['nama_lengkap'] ?? 'Admin'); ?></span>
-                    <a href="<?php echo BASE_URL; ?>pages/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a href="<?php echo BASE_URL; ?>logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </div>
             </div>
 

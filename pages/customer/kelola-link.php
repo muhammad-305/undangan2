@@ -18,7 +18,7 @@ $stmt->close();
 
 if (!$undangan) {
     setFlashMessage('error', 'Anda belum memiliki undangan.');
-    redirect('pages/customer/dashboard');
+    redirect('customer/dashboard');
 }
 
 $undanganId = $undangan['id'];
@@ -28,7 +28,7 @@ $undanganSlug = $undangan['slug'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if (!verifyCSRFToken($_POST['csrf_token'])) {
         setFlashMessage('error', 'Invalid CSRF token');
-        redirect('pages/customer/kelola-link');
+        redirect('customer/kelola-link');
     }
     
     $action = $_POST['action'];
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             setFlashMessage('error', 'Gagal menambahkan link tamu');
         }
         $stmt->close();
-        redirect('pages/customer/kelola-link');
+        redirect('customer/kelola-link');
     }
     
     // Edit link
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             setFlashMessage('error', 'Gagal memperbarui link tamu');
         }
         $stmt->close();
-        redirect('pages/customer/kelola-link');
+        redirect('customer/kelola-link');
     }
     
     // Delete link
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             setFlashMessage('error', 'Gagal menghapus link tamu');
         }
         $stmt->close();
-        redirect('pages/customer/kelola-link');
+        redirect('customer/kelola-link');
     }
     
     // Bulk add from CSV
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         } else {
             setFlashMessage('error', 'File CSV tidak valid');
         }
-        redirect('pages/customer/kelola-link');
+        redirect('customer/kelola-link');
     }
 }
 
@@ -339,22 +339,22 @@ $pageTitle = 'Kelola Link Tamu';
                 <p style="opacity: 0.8; font-size: 14px;"><?php echo escapeOutput($userName); ?></p>
             </div>
             <nav class="sidebar-menu">
-                <a href="<?php echo BASE_URL; ?>pages/customer/dashboard" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/dashboard" class="menu-item">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/edit-undangan" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/edit-undangan" class="menu-item">
                     <i class="fas fa-edit"></i> Edit Undangan
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-ucapan" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-ucapan" class="menu-item">
                     <i class="fas fa-comments"></i> Kelola Ucapan
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-hadiah" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-hadiah" class="menu-item">
                     <i class="fas fa-gift"></i> Kelola Hadiah
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-link" class="menu-item active">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-link" class="menu-item active">
                     <i class="fas fa-link"></i> Kelola Link
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/logout" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>logout" class="menu-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </nav>

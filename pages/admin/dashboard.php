@@ -1,5 +1,5 @@
 <?php
-require_once '../../includes/functions.php';
+require_once 'includes/functions.php';
 startSecureSession();
 requireAdmin();
 
@@ -49,16 +49,16 @@ $pageTitle = "Dashboard Admin";
                 <p>Admin Panel</p>
             </div>
             <nav class="sidebar-menu">
-                <a href="<?php echo BASE_URL; ?>pages/admin/dashboard" class="menu-item active">
+                <a href="<?php echo BASE_URL; ?>admin/dashboard" class="menu-item active">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/admin/undangan-list" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>admin/undangan-list" class="menu-item">
                     <i class="fas fa-envelope"></i> Undangan List
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/admin/kelola-user" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>admin/kelola-user" class="menu-item">
                     <i class="fas fa-users"></i> Kelola User
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/logout" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>logout" class="menu-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </nav>
@@ -71,7 +71,7 @@ $pageTitle = "Dashboard Admin";
                 <h1><?php echo $pageTitle; ?></h1>
                 <div class="user-menu">
                     <span><i class="fas fa-user-circle"></i> <?php echo escapeOutput($_SESSION['nama_lengkap'] ?? 'Admin'); ?></span>
-                    <a href="<?php echo BASE_URL; ?>pages/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a href="<?php echo BASE_URL; ?>logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </div>
             </div>
 
@@ -125,7 +125,7 @@ $pageTitle = "Dashboard Admin";
                 <div class="card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <h2 style="font-size: 20px; margin: 0;">Undangan Terbaru</h2>
-                        <a href="<?php echo BASE_URL; ?>pages/admin/undangan-list" class="btn btn-primary" style="padding: 10px 20px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px;">
+                        <a href="<?php echo BASE_URL; ?>admin/undangan-list" class="btn btn-primary" style="padding: 10px 20px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 5px;">
                             <i class="fas fa-plus"></i> Lihat Semua
                         </a>
                     </div>
@@ -168,7 +168,7 @@ $pageTitle = "Dashboard Admin";
                                         <td style="padding: 12px; text-align: center;"><?php echo number_format($row['views']); ?></td>
                                         <td style="padding: 12px; text-align: center;">
                                             <div class="action-buttons" style="display: flex; gap: 5px; justify-content: center;">
-                                                <a href="<?php echo BASE_URL; ?>pages/admin/undangan-preview?id=<?php echo $row['id']; ?>" 
+                                                <a href="<?php echo BASE_URL; ?>admin/undangan-preview?id=<?php echo $row['id']; ?>" 
                                                    class="btn btn-sm" 
                                                    style="padding: 6px 12px; background: #17a2b8; color: white; text-decoration: none; border-radius: 4px; font-size: 14px;"
                                                    title="Preview">

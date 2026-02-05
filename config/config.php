@@ -10,8 +10,12 @@ if (ENVIRONMENT === 'development') {
 }
 
 // Path
-define('ROOT_PATH', dirname(__DIR__) . '/');
-define('UPLOAD_PATH', ROOT_PATH . 'uploads/');
+if (!defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . '/');
+}
+if (!defined('UPLOAD_PATH')) {
+    define('UPLOAD_PATH', ROOT_PATH . 'uploads/');
+}
 
 // Security
 define('SECRET_KEY', 'muza-undangan-online-2026-secret-key-change-in-production');

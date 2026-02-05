@@ -1,19 +1,15 @@
 # Enable Rewrite Engine
 RewriteEngine On
-RewriteBase /
+RewriteBase /undangan-online/
 
-# Remove .php extension
+# Redirect everything to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php [L]
+RewriteRule ^(.*)$ index.php [L,QSA]
 
-# Remove trailing slash
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/$ /$1 [L,R=301]
-
-# Custom URL for undangan
+# Custom URL for undangan (processed by index.php)
 # Format: /nama-wanita-nama-pria/nama-tamu
-RewriteRule ^([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)$ pages/view-undangan.php?slug=$1&tamu=$2 [L,QSA]
+# RewriteRule ^([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+)$ pages/view-undangan.php?slug=$1&tamu=$2 [L,QSA]
 
 # Protect sensitive files
 <FilesMatch "^(config|database|security)\.php$">

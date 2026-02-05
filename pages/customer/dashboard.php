@@ -68,24 +68,24 @@ $pageTitle = 'Dashboard Customer';
                 <p style="opacity: 0.8; font-size: 14px;"><?php echo escapeOutput($userName); ?></p>
             </div>
             <nav class="sidebar-menu">
-                <a href="<?php echo BASE_URL; ?>pages/customer/dashboard" class="menu-item active">
+                <a href="<?php echo BASE_URL; ?>customer/dashboard" class="menu-item active">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
                 <?php if ($undangan): ?>
-                <a href="<?php echo BASE_URL; ?>pages/customer/edit-undangan" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/edit-undangan" class="menu-item">
                     <i class="fas fa-edit"></i> Edit Undangan
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-ucapan" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-ucapan" class="menu-item">
                     <i class="fas fa-comments"></i> Kelola Ucapan
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-hadiah" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-hadiah" class="menu-item">
                     <i class="fas fa-gift"></i> Kelola Hadiah
                 </a>
-                <a href="<?php echo BASE_URL; ?>pages/customer/kelola-link" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>customer/kelola-link" class="menu-item">
                     <i class="fas fa-link"></i> Kelola Link
                 </a>
                 <?php endif; ?>
-                <a href="<?php echo BASE_URL; ?>pages/logout" class="menu-item">
+                <a href="<?php echo BASE_URL; ?>logout" class="menu-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </nav>
@@ -176,16 +176,16 @@ $pageTitle = 'Dashboard Customer';
                             <i class="fas fa-bolt"></i> Quick Actions
                         </h3>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                            <a href="<?php echo BASE_URL; ?>pages/customer/edit-undangan" class="btn" style="background: var(--primary-color); color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
+                            <a href="<?php echo BASE_URL; ?>customer/edit-undangan" class="btn" style="background: var(--primary-color); color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
                                 <i class="fas fa-edit"></i> Edit Undangan
                             </a>
-                            <a href="<?php echo BASE_URL; ?>pages/customer/kelola-ucapan" class="btn" style="background: #17a2b8; color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
+                            <a href="<?php echo BASE_URL; ?>customer/kelola-ucapan" class="btn" style="background: #17a2b8; color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
                                 <i class="fas fa-comments"></i> Kelola Ucapan
                             </a>
-                            <a href="<?php echo BASE_URL; ?>pages/customer/kelola-hadiah" class="btn" style="background: #ffc107; color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
+                            <a href="<?php echo BASE_URL; ?>customer/kelola-hadiah" class="btn" style="background: #ffc107; color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
                                 <i class="fas fa-gift"></i> Kelola Hadiah
                             </a>
-                            <a href="<?php echo BASE_URL; ?>pages/customer/kelola-link" class="btn" style="background: #28a745; color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
+                            <a href="<?php echo BASE_URL; ?>customer/kelola-link" class="btn" style="background: #28a745; color: white; padding: 15px; text-align: center; border-radius: 5px; text-decoration: none; display: block;">
                                 <i class="fas fa-link"></i> Kelola Link
                             </a>
                         </div>

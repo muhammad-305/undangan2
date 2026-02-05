@@ -3,7 +3,7 @@ uploads/*
 !uploads/.gitkeep
 
 # Config (sensitive data)
-config/database.php
+# config/database.php
 
 # IDE
 .vscode/
