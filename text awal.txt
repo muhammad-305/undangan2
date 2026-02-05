@@ -1,0 +1,41 @@
+buatkan saya file md untuk undangan online yang akan di kerjakan oleh agent ai saya
+saya mau
+1. aplikasi saya
+	a. dengan php natif tanpa .php di viewnya buatkan juga .htaccess
+	b. untuk css buatkan di folder terpisah
+	c. jika ada js juga di buat folder terpisah
+	d. file.php hanya php saja jangan ada style
+	e. untuk file phppnya buat di pages
+	f. buatkan juga databasenya
+	g. saya akan upload file saya ke https://undangan.muza-project.com/ buatkan juga settingan di local saya
+	h. buatkan keamannya
+	
+2. untuk halaman beranda dan contohnya
+	a. saya mau halaman beranda yang menarik
+	b. untuk file undangan bisa samakan dengan background yang ada di file image/background saya mau lebih dari 1 samakan saja seperti file backgroundnya
+	c. untuk halaman view undangannya contohnya untuk background bisa di lihat di image/background dan untuk contoh qr dan pengantin pria dan wanita ada di image/
+	d. untuk halaman view undangan terdiri dari:
+		- cover
+		- Mempelai seperti nama keluarga siapa dan doa seperti "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami"
+		- Cerita Kami seerti timeline
+		- Menghitung Hari
+		- Acara Pernikahan akad dan Resepsi dan tambahkan juga lihat lokasinya
+		- Galeri Foto
+		- Hadiah Pernikahan seperti bank dan wallet bisa salin dan juga tampil QR
+		- Konfirmasi input Kehadiran / ucapan
+		- isi Ucapan & Doa
+		- footer
+		- tambahkan lagu
+	e. di halaman beranda tambahkan juga button login
+	
+3. halaman login admin
+	a. CRUD undangan contoh buatkan semudah mungkin dari upload dan ganti warna dan lainnya
+	b. priveiew undangan
+	c. kelolah user
+
+4. halaman login customer
+	a. mengubah text dan foto2 yang ada di undangan yang sudah di daftarkan seperti: nama, foto 
+	b. melihat Ucapan & Doa
+	c. mengubah Hadiah Pernikahan seperti bank dan wallet dan juga QR 
+	d. shere link dengan di tambah,edit,delete dan button copy
+	e. untuk link ucapan akan muncul seperti undangan.com/nama perempuan-nama pria/nama yang di undangn contoh undangan.com/wanita-pria/budi-dan-keluarga
