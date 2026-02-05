@@ -7,32 +7,57 @@ $conn = getConnection();
 
 // Handle search
 $search = isset($_GET['search']) ? sanitizeInput($_GET['search']) : '';
-$searchCondition = '';
-if ($search) {
-    $searchCondition = " WHERE u.nama_pria LIKE '%$search%' OR u.nama_wanita LIKE '%$search%' OR us.nama_lengkap LIKE '%$search%'";
-}
 
 // Pagination
 $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 $perPage = 15;
 $offset = ($page - 1) * $perPage;
 
-// Count total
-$countQuery = $conn->query("SELECT COUNT(*) as total FROM undangan u LEFT JOIN users us ON u.user_id = us.id" . $searchCondition);
-$totalRecords = $countQuery->fetch_assoc()['total'];
-$totalPages = ceil($totalRecords / $perPage);
+// Build query with search
+if ($search) {
+    $searchLike = "%$search%";
+    
+    // Count total
+    $countStmt = $conn->prepare("SELECT COUNT(*) as total FROM undangan u LEFT JOIN users us ON u.user_id = us.id WHERE u.nama_pria LIKE ? OR u.nama_wanita LIKE ? OR us.nama_lengkap LIKE ?");
+    $countStmt->bind_param("sss", $searchLike, $searchLike, $searchLike);
+    $countStmt->execute();
+    $countResult = $countStmt->get_result();
+    $totalRecords = $countResult->fetch_assoc()['total'];
+    $countStmt->close();
+    
+    // Get undangan list
+    $stmt = $conn->prepare("
+        SELECT u.*, us.nama_lengkap as customer_name, us.email as customer_email, t.nama_template 
+        FROM undangan u 
+        LEFT JOIN users us ON u.user_id = us.id 
+        LEFT JOIN template_undangan t ON u.template_id = t.id 
+        WHERE u.nama_pria LIKE ? OR u.nama_wanita LIKE ? OR us.nama_lengkap LIKE ?
+        ORDER BY u.created_at DESC 
+        LIMIT ? OFFSET ?
+    ");
+    $stmt->bind_param("sssii", $searchLike, $searchLike, $searchLike, $perPage, $offset);
+    $stmt->execute();
+    $undanganQuery = $stmt->get_result();
+} else {
+    // Count total
+    $countQuery = $conn->query("SELECT COUNT(*) as total FROM undangan u LEFT JOIN users us ON u.user_id = us.id");
+    $totalRecords = $countQuery->fetch_assoc()['total'];
+    
+    // Get undangan list
+    $stmt = $conn->prepare("
+        SELECT u.*, us.nama_lengkap as customer_name, us.email as customer_email, t.nama_template 
+        FROM undangan u 
+        LEFT JOIN users us ON u.user_id = us.id 
+        LEFT JOIN template_undangan t ON u.template_id = t.id 
+        ORDER BY u.created_at DESC 
+        LIMIT ? OFFSET ?
+    ");
+    $stmt->bind_param("ii", $perPage, $offset);
+    $stmt->execute();
+    $undanganQuery = $stmt->get_result();
+}
 
-// Get undangan list
-$query = "
-    SELECT u.*, us.nama_lengkap as customer_name, us.email as customer_email, t.nama_template 
-    FROM undangan u 
-    LEFT JOIN users us ON u.user_id = us.id 
-    LEFT JOIN template_undangan t ON u.template_id = t.id 
-    $searchCondition
-    ORDER BY u.created_at DESC 
-    LIMIT $perPage OFFSET $offset
-";
-$undanganQuery = $conn->query($query);
+$totalPages = ceil($totalRecords / $perPage);
 
 // Handle delete
 if (isset($_POST['delete_id']) && verifyCSRFToken($_POST['csrf_token'] ?? '')) {
