@@ -1,0 +1,22 @@
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Config (sensitive data)
+config/database.php
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
